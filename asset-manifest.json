@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-07-phonebook/static/css/main.d4211225.css",
-    "main.js": "/goit-react-hw-07-phonebook/static/js/main.989b1239.js",
-    "static/media/molumen_phone_icon.svg": "/goit-react-hw-07-phonebook/static/media/molumen_phone_icon.6327af0f0e645dbc2b2b.svg",
-    "static/media/open-book-book.svg": "/goit-react-hw-07-phonebook/static/media/open-book-book.a897dae6a82e25030cc9.svg",
-    "index.html": "/goit-react-hw-07-phonebook/index.html",
-    "main.d4211225.css.map": "/goit-react-hw-07-phonebook/static/css/main.d4211225.css.map",
-    "main.989b1239.js.map": "/goit-react-hw-07-phonebook/static/js/main.989b1239.js.map"
+    "main.css": "/static/css/main.c157c9b8.css",
+    "main.js": "/static/js/main.4728fc10.js",
+    "static/media/molumen_phone_icon.svg": "/static/media/molumen_phone_icon.6327af0f0e645dbc2b2b.svg",
+    "static/media/open-book-book.svg": "/static/media/open-book-book.a897dae6a82e25030cc9.svg",
+    "index.html": "/index.html",
+    "main.c157c9b8.css.map": "/static/css/main.c157c9b8.css.map",
+    "main.4728fc10.js.map": "/static/js/main.4728fc10.js.map"
   },
   "entrypoints": [
-    "static/css/main.d4211225.css",
-    "static/js/main.989b1239.js"
+    "static/css/main.c157c9b8.css",
+    "static/js/main.4728fc10.js"
   ]
 }
