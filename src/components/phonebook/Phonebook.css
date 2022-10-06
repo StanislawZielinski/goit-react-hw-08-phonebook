@@ -1,17 +1,4 @@
-.wrapper {
-    min-height: 500px;
-    width: 350px;
-    border: solid 2px black;
-    border-radius: 10%;
-    background-image: url("../../images/open-book-book.svg");
-    background-color: #cccccc;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: relative;
-    font-weight: 700;
-    box-shadow: 10px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+
 
 
 .filter-title {

@@ -85,7 +85,7 @@ const Phonebook = () => {
     };   
 
  return (
-            <div className="wrapper">
+            <div>
                 <Form handleSubmit={handleSubmit} />
                     <div className="contacts-wrapper">
                     <Filter onChange={onChange} />
