@@ -7,8 +7,9 @@ const Home = () => {
 
  return (
     <nav className="nav">
+        <p className="description">Create your own, personal phonebook!</p>
     <NavLink to="Login">Login</NavLink>
-    <NavLink to="/register">Register</NavLink>
+    <NavLink to="/Register">Register</NavLink>
     </nav>
     )
 }
