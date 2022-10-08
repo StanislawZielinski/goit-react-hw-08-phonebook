@@ -1,14 +1,20 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FormGroup } from 'react-bootstrap';
 import { useAddNewUserMutation } from "redux/apiSlice";
 import Notiflix from 'notiflix';
+import { addToken } from '../../redux/tokenSlice';
+import { useNavigate } from 'react-router-dom';
 
 export const RegisterForm = () => {
 
     const dispatch = useDispatch();
+    console.log(addToken);
+    // const tokenStore = useSelector(state=>state.token);
+    // console.log(tokenStore);
+    const navigate = useNavigate();
     const [addNewUser] = useAddNewUserMutation();
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,8 +27,9 @@ export const RegisterForm = () => {
         const password = passwordDOM.value
 
         console.log(typeof(name), typeof(email), typeof(password));  
-        const canSave = [name, email, password].every(Boolean);
-        console.log(canSave);
+        const canRegister = [name, email, password].every(Boolean);
+        console.log(canRegister);
+        const credentials = {name, email, password};
         //   dispatch(
         //     register({
         //       username: username.value,
@@ -30,18 +37,31 @@ export const RegisterForm = () => {
         //       password: password.value,
         //     })
         //   );
-        if (canSave) {
+        if (canRegister) {
             try {
                 Notiflix.Loading.standard('wait...');
                 Notiflix.Loading.remove(2000);
-                await addNewUser({ name, email, password }).unwrap();
-            }
+                await addNewUser(credentials).unwrap().then(
+                    ({token, user:{name, email}}) => {if (token !== undefined) {
+                        console.log("one", token);
+                        dispatch(addToken(token));
+                        console.log("two")}
+                    else {
+                        Notiflix.Notify.failure(`Something went wrong. Pleasw try again`);
+                        return
+                    }}
+                    ) ;
+                }
             catch (error) {
-                alert("error")
+                alert("error");
+                return
             }
-        }
+        };
+
         const form = document.getElementById("form");  
         form.reset();
+
+        await navigate("/contacts", { replace: true });
     };
 
     return ( 
