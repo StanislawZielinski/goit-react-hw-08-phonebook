@@ -5,7 +5,8 @@ export const apiSlice = createApi(
         reducerPath: 'api',
         baseQuery: fetchBaseQuery({ baseUrl: 'https://connections-api.herokuapp.com' }),
         prepareHeaders: (headers, { getState }) => {
-            const token = getState().token;
+            const token = getState().token.token;
+            console.log(token);
             // If we have a token set in state, let's assume that we should be passing it.
             if (token) {
               headers.set('authorization', `Bearer ${token}`)
@@ -16,15 +17,23 @@ export const apiSlice = createApi(
         tagTypes: ['contacts', 'user'],
         endpoints: builder => (
             {
-                // getPosts: builder.query({
-                //     query: () => '/contacts',
-                //     transformResponse: res => res.sort((a,b)=>b.id - a.id),
-                //     providesTags: ['contacts']
-                // }),
-
+                getPosts: builder.query({
+                    query: () => '/contacts',
+                    transformResponse: res => res.sort((a,b)=>b.id - a.id),
+                    providesTags: ['contacts']
+                }),
                 addNewUser: builder.mutation({
                     query: userData => ({
                         url: '/users/signup',
+                        method: 'POST',
+                        // Include the entire post object as the body of the request
+                        body: userData
+                    }),
+                    invalidatesTags: ['user']
+                }),
+                login: builder.mutation({
+                    query: userData => ({
+                        url: '/users/login',
                         method: 'POST',
                         // Include the entire post object as the body of the request
                         body: userData
@@ -44,7 +53,7 @@ export const apiSlice = createApi(
         )
     }
 )
-export const { useGetPostsQuery, useAddNewUserMutation, } = apiSlice;
+export const { useGetPostsQuery, useAddNewUserMutation, useLoginMutation } = apiSlice;
 
 
 

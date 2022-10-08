@@ -2,9 +2,11 @@ import { configureStore } from "@reduxjs/toolkit";
 import { apiSlice } from "./apiSlice";
 import contactsSlice from "./contactsSlice";
 import tokenSlice from "./tokenSlice";
+import userSlice from "./userSlice";
 
 const store = configureStore({
     reducer: {
+        user: userSlice.reducer,
         contacts: contactsSlice.reducer,
         token: tokenSlice.reducer,
         [apiSlice.reducerPath]: apiSlice.reducer

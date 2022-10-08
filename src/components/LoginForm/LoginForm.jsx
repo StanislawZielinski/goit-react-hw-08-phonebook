@@ -3,39 +3,34 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FormGroup } from 'react-bootstrap';
-import { useAddNewUserMutation } from "redux/apiSlice";
+import { useLoginMutation } from "redux/apiSlice";
 import Notiflix from 'notiflix';
+import { addUser } from '../../redux/userSlice';
 import { addToken } from '../../redux/tokenSlice';
 import { useNavigate } from 'react-router-dom';
 
-export const RegisterForm = () => {
+export const LoginForm = () => {
 
     const dispatch = useDispatch();
-    // console.log(addToken);
-    // const tokenStore = useSelector(state=>state.token);
-    // console.log(tokenStore);
     const navigate = useNavigate();
-    const [addNewUser] = useAddNewUserMutation();
+    const [login] = useLoginMutation();
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const usernameDOM = document.getElementById("username");
         const emailDOM = document.getElementById("email");
         const passwordDOM = document.getElementById("password");
-        const name = usernameDOM.value;
         const email = emailDOM.value;
         const password = passwordDOM.value
-
-        console.log(typeof(name), typeof(email), typeof(password));  
-        const canRegister = [name, email, password].every(Boolean);
-        console.log(canRegister);
-        const credentials = {name, email, password};
-        if (canRegister) {
+ 
+        const canLogin = [email, password].every(Boolean);
+        console.log(canLogin);
+        const credentials = {email, password};
+        if (canLogin) {
             try {
                 Notiflix.Loading.standard('wait...');
                 Notiflix.Loading.remove(2000);
-                await addNewUser(credentials).unwrap().then(
-                    ({token, user:{name, email}}) => {if (token !== undefined) {
+                await login(credentials).unwrap().then(
+                    ({token}) => {if (token !== undefined) {
                         dispatch(addToken(token));}
                     else {
                         Notiflix.Notify.failure(`Something went wrong. Pleasw try again`);
@@ -58,12 +53,6 @@ export const RegisterForm = () => {
     return ( 
     <>
     <form onSubmit={handleSubmit} id="form">
-        <FormGroup className="mb-3" controlId="username">
-            <FloatingLabel   label="Username">
-                <Form.Control type="username" placeholder="Username" id='username'/>
-            </FloatingLabel>
-        </FormGroup>
-
         <FormGroup className="mb-3" controlId="email">
             <FloatingLabel  label="Email address">
                 <Form.Control type="email" placeholder="name@example.com"  id='email'/>
@@ -76,9 +65,8 @@ export const RegisterForm = () => {
             </FloatingLabel>
         </FormGroup>
 
-        <Button variant="outline-primary" type='submit'>Register</Button>
+        <Button variant="outline-primary" type='submit'>Login</Button>
       </form>
       </>
     )
-
 }
