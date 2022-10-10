@@ -8,7 +8,7 @@ import Notiflix from 'notiflix';
 import { addUser } from '../../redux/userSlice';
 import { addToken } from '../../redux/tokenSlice';
 import { useNavigate } from 'react-router-dom';
-
+import { logIn } from '../../redux/isLoggedSlice';
 export const LoginForm = () => {
 
     const dispatch = useDispatch();
@@ -31,7 +31,9 @@ export const LoginForm = () => {
                 Notiflix.Loading.remove(2000);
                 await login(credentials).unwrap().then(
                     ({token}) => {if (token !== undefined) {
-                        dispatch(addToken(token));}
+                        dispatch(addToken(token));
+                        dispatch(logIn(true));
+                        dispatch(addUser(email,password))}
                     else {
                         Notiflix.Notify.failure(`Something went wrong. Pleasw try again`);
                         return
@@ -65,7 +67,7 @@ export const LoginForm = () => {
             </FloatingLabel>
         </FormGroup>
 
-        <Button variant="outline-primary" type='submit'>Login</Button>
+        <Button variant="outline-primary" type='submit'>Log in</Button>
       </form>
       </>
     )

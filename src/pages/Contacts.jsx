@@ -8,6 +8,10 @@ import { useSelector } from 'react-redux';
 const Contacts = props => {
   const token = useSelector(state=>state.token);
   console.log(token);
+  const isLogged = useSelector(state=>state.isLogged);
+  console.log(isLogged);
+  const user = useSelector(state=>state.user);
+  console.log(user);
   return (
     <div>
       <Phonebook/>

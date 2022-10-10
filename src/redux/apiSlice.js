@@ -9,7 +9,7 @@ export const apiSlice = createApi(
             console.log(token);
             // If we have a token set in state, let's assume that we should be passing it.
             if (token) {
-              headers.set('authorization', `Bearer ${token}`)
+              headers.set('Authorization', `Bearer ${token}`)
             }
         
             return headers
@@ -20,7 +20,7 @@ export const apiSlice = createApi(
                 getPosts: builder.query({
                     query: () => '/contacts',
                     transformResponse: res => res.sort((a,b)=>b.id - a.id),
-                    providesTags: ['contacts']
+                    providesTags: ['contacts'],
                 }),
                 addNewUser: builder.mutation({
                     query: userData => ({

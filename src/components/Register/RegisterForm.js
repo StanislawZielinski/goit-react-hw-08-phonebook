@@ -6,6 +6,7 @@ import { FormGroup } from 'react-bootstrap';
 import { useAddNewUserMutation } from "redux/apiSlice";
 import Notiflix from 'notiflix';
 import { addToken } from '../../redux/tokenSlice';
+import { logIn } from '../../redux/isLoggedSlice';
 import { useNavigate } from 'react-router-dom';
 
 export const RegisterForm = () => {
@@ -36,7 +37,7 @@ export const RegisterForm = () => {
                 Notiflix.Loading.remove(2000);
                 await addNewUser(credentials).unwrap().then(
                     ({token, user:{name, email}}) => {if (token !== undefined) {
-                        dispatch(addToken(token));}
+                        dispatch(addToken(token),logIn(true));}
                     else {
                         Notiflix.Notify.failure(`Something went wrong. Pleasw try again`);
                         return

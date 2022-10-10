@@ -100,7 +100,8 @@ const Phonebook = () => {
     // const onChange = (evt) => {
     //     dispatch(filterContact(evt.target.value));
     // };   
-
+    const token = useSelector(state=>state.token);
+    console.log(token);
  return (
             <div>
                 {/* <Form handleSubmit={handleSubmit} /> */}
@@ -114,5 +115,4 @@ const Phonebook = () => {
             </div>
     )
 }
-
 export default Phonebook
