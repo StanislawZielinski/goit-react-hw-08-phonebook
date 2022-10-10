@@ -1,16 +1,16 @@
 import React from "react";
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import "./Phonebook.css"
-import Form from "components/Form/Form";
+// import Form from "components/Form/Form";
 import DeleteBtn from "components/DeleteBtn/DeleteBtn"
-import Filter from "components/Filter/Filter"
+// import Filter from "components/Filter/Filter"
 import Contacts from "components/Contacts/Contacts";
-import { useSelector, useDispatch } from "react-redux";
-import {  filterContact } from "../../redux/store";
+import { useSelector } from "react-redux";
+// import {  filterContact } from "../../redux/store";
 import { useGetPostsQuery } from "redux/apiSlice";
 // import { useGetPostsQuery, useAddNewPostMutation, useDeletePostMutation } from "redux/apiSlice";
 import { Audio } from 'react-loader-spinner';
-import Notiflix from 'notiflix';
+// import Notiflix from 'notiflix';
 
 const Phonebook = () => {
     const { data, isLoading, isSuccess, isError, error } = useGetPostsQuery();
