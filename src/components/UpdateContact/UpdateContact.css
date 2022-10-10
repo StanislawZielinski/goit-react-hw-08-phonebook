@@ -1,0 +1,14 @@
+.update-contact {
+    background-color: lightcyan;
+    font-size: 12px;
+    margin-bottom: 5px;
+    transition: all 0.5s;
+    text-align: right;
+    display: inline-block;
+}
+
+.update-contact:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}

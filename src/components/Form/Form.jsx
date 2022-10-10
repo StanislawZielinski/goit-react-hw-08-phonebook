@@ -6,7 +6,7 @@ const Form = ({handleSubmit}) => {
 
     return (
             <form className="form" onSubmit={handleSubmit}>
-            <p className="title">Phonebook</p>
+            <p className="title">Add new contact</p>
             <div className="input-wrapper">
                 <label className="label">Name
                     <input
