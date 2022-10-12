@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/111.6de9079c.chunk.css","mappings":"AAAA,eACI,eACJ,CACA,OACA,YAAa,CACb,sBACA","sources":["pages/Register.css"],"sourcesContent":[".login-wrapper {\n    margin-top: 80px;\n}\n.title{\ndisplay: flex;\njustify-content: center;\n}"],"names":[],"sourceRoot":""}
