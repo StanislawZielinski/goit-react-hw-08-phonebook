@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 
 const Home = () => {
 
-
  return (
     <nav className="nav">
         <p className="description">Create your own, personal phonebook!</p>
