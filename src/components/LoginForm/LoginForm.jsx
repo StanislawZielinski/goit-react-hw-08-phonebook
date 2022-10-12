@@ -23,7 +23,6 @@ export const LoginForm = () => {
         const password = passwordDOM.value
  
         const canLogin = [email, password].every(Boolean);
-        console.log(canLogin);
         const credentials = {email, password};
         if (canLogin) {
             try {
@@ -46,8 +45,8 @@ export const LoginForm = () => {
             }
         };
 
-        const form = document.getElementById("form");  
-        form.reset();
+        // const form = document.getElementById("form");  
+        // form.reset();
 
         await navigate("/contacts", { replace: true });
     };

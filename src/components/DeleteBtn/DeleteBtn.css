@@ -12,3 +12,18 @@
     background-color: black;
     color: white;
 }
+
+.button-contact-update {
+    background-color: lightblue;
+    font-size: 12px;
+    margin-bottom: 5px;
+    transition: all 0.5s;
+    text-align: right;
+    display: inline-block;
+}
+
+.button-contact-update:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}

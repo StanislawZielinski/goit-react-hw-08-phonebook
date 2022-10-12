@@ -1,6 +1,6 @@
 .wrapper {
     min-height: 500px;
-    width: 350px;
+    width: 400px;
     border: solid 2px black;
     border-radius: 10%;
     background-image: url("./../images/open-book-book.svg");

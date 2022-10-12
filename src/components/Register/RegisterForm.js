@@ -12,9 +12,6 @@ import { useNavigate } from 'react-router-dom';
 export const RegisterForm = () => {
 
     const dispatch = useDispatch();
-    // console.log(addToken);
-    // const tokenStore = useSelector(state=>state.token);
-    // console.log(tokenStore);
     const navigate = useNavigate();
     const [addNewUser] = useAddNewUserMutation();
     const handleSubmit = async (e) => {
@@ -36,7 +33,7 @@ export const RegisterForm = () => {
                 Notiflix.Loading.standard('wait...');
                 Notiflix.Loading.remove(2000);
                 await addNewUser(credentials).unwrap().then(
-                    ({token, user:{name, email}}) => {if (token !== undefined) {
+                    ({token}) => {if (token !== undefined) {
                         dispatch(addToken(token),logIn(true));}
                     else {
                         Notiflix.Notify.failure(`Something went wrong. Pleasw try again`);

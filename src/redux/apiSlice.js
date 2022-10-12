@@ -6,7 +6,6 @@ export const apiSlice = createApi(
         baseQuery: fetchBaseQuery({ baseUrl: 'https://connections-api.herokuapp.com',
         prepareHeaders: (headers, { getState }) => {
             const token = getState().token.token;
-            console.log(token);
             // If we have a token set in state, let's assume that we should be passing it.
             if (token) {
               headers.set('Authorization', `Bearer ${token}`)
