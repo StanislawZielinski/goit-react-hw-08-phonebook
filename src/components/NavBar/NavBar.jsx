@@ -4,9 +4,9 @@ import "./NavBar.css";
 import { useSelector } from 'react-redux';
 import Email from 'components/UserMenu/Email';
 import LogOut from 'components/UserMenu/LogOut';
-// import PropTypes from 'prop-types'
 
-const NavBar = props => {
+
+const NavBar = () => {
 const isLogged = useSelector(state=>state.isLogged.isLogged);
   return (
     <nav className='navBar'>
@@ -17,8 +17,5 @@ const isLogged = useSelector(state=>state.isLogged.isLogged);
   )
 }
 
-// NavBar.propTypes = {
-
-// }
 
 export default NavBar

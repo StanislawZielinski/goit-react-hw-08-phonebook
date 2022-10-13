@@ -9,6 +9,7 @@ import { addUser } from '../../redux/userSlice';
 import { addToken } from '../../redux/tokenSlice';
 import { useNavigate } from 'react-router-dom';
 import { logIn } from '../../redux/isLoggedSlice';
+
 export const LoginForm = () => {
 
     const dispatch = useDispatch();
@@ -44,9 +45,6 @@ export const LoginForm = () => {
                 return
             }
         };
-
-        // const form = document.getElementById("form");  
-        // form.reset();
 
         await navigate("/contacts", { replace: true });
     };

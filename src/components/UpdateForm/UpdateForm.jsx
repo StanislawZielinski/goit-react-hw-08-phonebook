@@ -38,4 +38,7 @@ export default UpdateForm
 
 UpdateForm.propTypes = {
     handleUpdate: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
 }

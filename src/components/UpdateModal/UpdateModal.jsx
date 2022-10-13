@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import "../DeleteBtn/DeleteBtn.css"
+import "../DeleteBtn/DeleteBtn.css";
+import PropTypes from "prop-types";
 
 const UpdateModal = ({children}) => {
   const [show, setShow] = useState(false);
@@ -31,6 +32,10 @@ const UpdateModal = ({children}) => {
       </Modal>
     </div>
   );
+}
+
+UpdateModal.propTypes = {
+  children: PropTypes.object.isRequired,
 }
 
 export default UpdateModal

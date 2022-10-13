@@ -1,10 +1,10 @@
 import React from 'react';
 import { LoginForm } from '../components/LoginForm/LoginForm';
-// import PropTypes from 'prop-types'
+
 
 import "./Register.css";
 
-const Login = props => {
+const Login = () => {
     return (
         <div className='login-wrapper'>
           <LoginForm />
@@ -12,8 +12,5 @@ const Login = props => {
       );
 }
 
-// Register.propTypes = {
-
-// }
 
 export default Login

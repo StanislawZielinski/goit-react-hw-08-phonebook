@@ -17,6 +17,7 @@
     background-color: lightblue;
     font-size: 12px;
     margin-bottom: 5px;
+    margin-left: 15px;
     transition: all 0.5s;
     text-align: right;
     display: inline-block;
