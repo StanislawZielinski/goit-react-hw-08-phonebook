@@ -11,10 +11,7 @@ const isLoggedSlice = createSlice({
     logIn(state, action) {
       state.isLogged = action.payload
     },
-    logOut(state, action) {
-        state.isLogged = action.payload
-      },
   }
 })
-export const { logIn, logOut } = isLoggedSlice.actions
+export const { logIn } = isLoggedSlice.actions
 export default isLoggedSlice;

@@ -1,7 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore} from "@reduxjs/toolkit";
 import {
     persistStore,
-    // persistReducer,
+    persistReducer,
     FLUSH,
     REHYDRATE,
     PAUSE,
@@ -9,7 +9,7 @@ import {
     PURGE,
     REGISTER,
   } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage' ;
+import storage from 'redux-persist/lib/storage' ;
 import { apiSlice } from "./apiSlice";
 import contactsSlice from "./contactsSlice";
 import tokenSlice from "./tokenSlice";
@@ -17,21 +17,31 @@ import userSlice from "./userSlice";
 import isLoggedSlice from "./isLoggedSlice";
 
 
-// const persistConfig = {
-//     key: 'root',
-//     storage,
-// }
+const persistConfig1 = {
+    key: 'root1',
+    storage,
+};
+const persistConfig2 = {
+  key: 'root2',
+  storage,
+};
+const persistConfig3 = {
+  key: 'root3',
+  storage,
+};
 
-// const persistedTokenReducer = persistReducer(persistConfig, tokenSlice);
-// const persistedUserReducer = persistReducer(persistConfig, userSlice);
-// const persistedisLoggedReducer = persistReducer(persistConfig, isLoggedSlice);
+
+const persistedisLoggedReducer = persistReducer(persistConfig1, isLoggedSlice.reducer);
+const persistedUserReducer = persistReducer(persistConfig2, userSlice.reducer);
+const persistedTokenReducer = persistReducer(persistConfig3, tokenSlice.reducer);
 
 export let store = configureStore({
     reducer: {
-        user: userSlice.reducer,
+        token: persistedTokenReducer,
+        user: persistedUserReducer,
+        isLogged: persistedisLoggedReducer,
+
         contacts: contactsSlice.reducer,
-        token: tokenSlice.reducer,
-        isLogged: isLoggedSlice.reducer,
         [apiSlice.reducerPath]: apiSlice.reducer,
 
     },

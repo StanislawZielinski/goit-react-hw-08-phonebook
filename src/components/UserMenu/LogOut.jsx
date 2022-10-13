@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import Notiflix from 'notiflix';
 import { addUser } from 'redux/userSlice';
 import {addToken} from 'redux/tokenSlice';
-import {logOut} from 'redux/isLoggedSlice';
+import {logIn} from '../../redux/isLoggedSlice';
 import { useNavigate } from 'react-router-dom';
 
 const LogOut = () => {
@@ -16,7 +16,7 @@ const LogOut = () => {
         Notiflix.Loading.remove(1000);
         dispatch(addUser(null));
         dispatch(addToken(null));
-        dispatch(logOut(false));
+        dispatch(logIn(false));
         navigate("/", { replace: true });
     }
 
