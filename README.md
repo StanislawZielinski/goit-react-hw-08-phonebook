@@ -1,10 +1,10 @@
-# goit-react-hw-08-phonebook
+Phonebook
  
 https://phonebookszielinski.netlify.app/
 
 description:
-Application allows to create user's personal phonebook (working with the backend, asynchronous queries). Registration and login.
-User can store, add, delete and filter contacts from the phone book.       
+Application that allows to create user's personal phonebook (working with the backend, asynchronous queries). Registration and login.
+User can store, add, delete and filter contacts from the phonebook.       
 Made with React-Router, RTK QUERY, Redux-Persist, Bootstrap, Notiflix 
 
 Technologies:
